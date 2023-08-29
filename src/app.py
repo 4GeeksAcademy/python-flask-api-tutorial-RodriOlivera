@@ -6,7 +6,7 @@ todos = [
     { "label": "My first task", "done": False }
 ]
 
-
+# Insertar Datos
 @app.route('/todos', methods=['POST'])
 def add_new_todo():
     request_body = request.json
@@ -14,10 +14,12 @@ def add_new_todo():
     todos.append(request_body)
     return jsonify(todos)
 
+# Traer Datos
 @app.route('/todos', methods=['GET'])
 def hello_world():
     return jsonify(todos)
 
+# Eliminar Datos
 @app.route('/todos/<int:position>', methods=['DELETE'])
 def delete_todo(position):
     try:
